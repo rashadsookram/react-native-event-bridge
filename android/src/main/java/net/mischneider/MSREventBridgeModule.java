@@ -210,8 +210,8 @@ public class MSREventBridgeModule extends ReactContextBaseJavaModule implements 
     // Get the root view
     ViewGroup contentView = (ViewGroup) activity.findViewById(android.R.id.content);
     View view = findRootView(contentView);
-    if (view == null) {
-      view = contentView;
+    if (!(view instanceof RootView) {
+      return;
     }
 
     // React tag is the identifier to be able to detect in ReactNativewhich component should receive
@@ -259,7 +259,6 @@ public class MSREventBridgeModule extends ReactContextBaseJavaModule implements 
         }
       }
     }
-
     return null;
   }
 
